@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { usePosition } from "use-position";
-import HavaDurumu from "./components/HavaDurumu";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import HavaDurumu from "./components/HavaDurumu"
 
-const App = () => {
+
+function App() {
   const [weather, setWeather] = useState();
   const { latitude, longitude } = usePosition();
 
@@ -26,11 +28,8 @@ const App = () => {
   }, [latitude, longitude]);
 
   return (
-    <div>
-      <h2>Hava Durumu</h2>
-      <HavaDurumu weather={weather} />
-    </div>
-  );
-};
+     <HavaDurumu weather={weather} />
+    );
+}
 
 export default App;
